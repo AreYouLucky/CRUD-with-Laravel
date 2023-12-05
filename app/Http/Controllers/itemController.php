@@ -28,9 +28,17 @@ class itemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        //return $req;
+
+        $item = new Item();
+        $item->name = $req->input('name');
+        $item->cost = $req->input('cost');
+        $item->description = $req->input('description');
+        $item->save();
+    
+        return redirect()->route('item.index');
     }
 
     /**
@@ -60,8 +68,11 @@ class itemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        //return $id;
+        $item = Item::findOrFail($id);
+        $item->delete();
+        return redirect()->route('item.index');
     }
 }

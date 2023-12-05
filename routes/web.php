@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[App\Http\Controllers\itemController::class, 'index']);
+Route::get('/',[App\Http\Controllers\itemController::class, 'index'])->name('item.index');
+Route::post('/submit',[App\Http\Controllers\itemController::class, 'store'])->name('item.store');
+Route::delete('/destroy/{id}',[App\Http\Controllers\itemController::class, 'destroy'])->name('item.destroy');

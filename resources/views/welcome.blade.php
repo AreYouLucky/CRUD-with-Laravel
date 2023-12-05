@@ -12,9 +12,50 @@
 
         <!-- Styles -->
         <style>
+
+            header{
+                background-color: rgb(0, 0, 0);
+                color: white;
+                padding: 10px;
+                font-family: 'Arial Narrow Bold', sans-serif;
+            }
+            body{
+                background-color: rgb(178, 218, 161);
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
            table{
-                
+            border-collapse: collapse;  
+            width: 100%;      
            }
+           th, td{
+            border: 1px solid black;
+            padding: 5px 10px 5px 10px;
+            margin: 0px;
+            text-align: center;
+           }
+           .item-controls{
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            gap: 50px;
+           }
+           .item-list{
+            flex: 2;
+           }
+           .item-forms{
+            display: flex;
+            flex: 1;
+            background-color: burlywood;
+            padding: 10px;
+           }
+           input{
+            width: 80%;
+            margin: 10px;
+           }
+
         </style>
     </head>
     <body class="antialiased">
