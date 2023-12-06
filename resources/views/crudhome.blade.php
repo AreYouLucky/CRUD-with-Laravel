@@ -25,7 +25,7 @@
                         @method('DELETE')
                         <td><button type="submit" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button></td>
                     </form>
-                    <td><button>Edit</button></td>
+                        <td> <button><a href="/editPage/{{$item->item_id}}">Edit</a></button></td>
                 </tr>
                     
                 @endforeach
@@ -36,7 +36,7 @@
             <form method="POST" action="{{route('item.store')}}">
                 @csrf
                 <label for="name"><b>Name:</b></label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name"> <br>
                 <label for="cost"><b>Cost:</b></label>
                 <input type="number" name="cost" id="cost">
                 <label for="description"><b>Description:</b></label>
@@ -45,8 +45,6 @@
                     Add item
                 </button>
             </form>
-    
-
         </div>
     </div>
     

@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[App\Http\Controllers\itemController::class, 'index'])->name('item.index');
 Route::post('/submit',[App\Http\Controllers\itemController::class, 'store'])->name('item.store');
 Route::delete('/destroy/{id}',[App\Http\Controllers\itemController::class, 'destroy'])->name('item.destroy');
+Route::get('/editPage/{id}', [App\Http\Controllers\itemController::class, 'show']);
+Route::put('/items/{id}', [App\Http\Controllers\itemController::class, 'update']);

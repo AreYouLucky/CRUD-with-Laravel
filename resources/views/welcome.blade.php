@@ -55,6 +55,10 @@
             width: 80%;
             margin: 10px;
            }
+           a{
+            text-decoration: none;
+            color: black;
+           }
 
         </style>
     </head>

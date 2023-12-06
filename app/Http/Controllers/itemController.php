@@ -10,6 +10,15 @@ class itemController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+     protected $itemEdit;
+
+     public function __construct(Item $itemEdit)
+     {
+         $this->itemEdit = $itemEdit;
+     }
+
     public function index()
     {
         $items = Item::all();
@@ -41,18 +50,14 @@ class itemController extends Controller
         return redirect()->route('item.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        
+            $itemEdit = Item::findOrFail($id);
+            return view('editPage')
+            ->with('item',$itemEdit);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
     }
@@ -60,9 +65,23 @@ class itemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, $id)
     {
-        //
+        $item = Item::findOrFail($id);
+
+            $req->validate([
+                'name' => 'required|string|max:255',
+                'cost' => 'required|numeric',
+                'description' => 'required|string',
+            ]);
+
+            $item->update([
+            'name' => $req->input('name'),
+            'cost' => $req->input('cost'),
+            'description' => $req->input('description'),
+            ]);
+
+            return redirect()->route('item.index');
     }
 
     /**
